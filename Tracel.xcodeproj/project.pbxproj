@@ -1,0 +1,780 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB60ADA923E03FAA005D8458 /* NewPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADA823E03FAA005D8458 /* NewPackageView.swift */; };
+		DB60ADAC23E0411B005D8458 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAB23E0411B005D8458 /* Interactor.swift */; };
+		DB60ADAE23E042F4005D8458 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAD23E042F4005D8458 /* NetworkError.swift */; };
+		DB60ADB023E04761005D8458 /* ServiceProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAF23E04761005D8458 /* ServiceProviders.swift */; };
+		DB7D11F323E0273A0002B897 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D11F223E0273A0002B897 /* String.swift */; };
+		DB7D11F523E02DE00002B897 /* ShipmentDetaliCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D11F423E02DE00002B897 /* ShipmentDetaliCard.swift */; };
+		DB7FCBF623D592490007250A /* Shipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7FCBF523D592490007250A /* Shipment.swift */; };
+		DB7FCBFA23D5B8450007250A /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7FCBF923D5B8450007250A /* Place.swift */; };
+		DB7FCBFC23D5B8C30007250A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7FCBFB23D5B8C30007250A /* Event.swift */; };
+		DB7FCC0123D5B9830007250A /* ShipmentInpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7FCC0023D5B9830007250A /* ShipmentInpost.swift */; };
+		DBDAB35523C4A1F7001924CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB35423C4A1F7001924CE /* AppDelegate.swift */; };
+		DBDAB35723C4A1F7001924CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB35623C4A1F7001924CE /* SceneDelegate.swift */; };
+		DBDAB35A23C4A1F7001924CE /* Tracel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB35823C4A1F7001924CE /* Tracel.xcdatamodeld */; };
+		DBDAB35E23C4A1FF001924CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBDAB35D23C4A1FF001924CE /* Assets.xcassets */; };
+		DBDAB36123C4A1FF001924CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBDAB36023C4A1FF001924CE /* Preview Assets.xcassets */; };
+		DBDAB36423C4A1FF001924CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDAB36223C4A1FF001924CE /* LaunchScreen.storyboard */; };
+		DBDAB36F23C4A1FF001924CE /* TracelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB36E23C4A1FF001924CE /* TracelTests.swift */; };
+		DBDAB37A23C4A1FF001924CE /* TracelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB37923C4A1FF001924CE /* TracelUITests.swift */; };
+		DBE9E51423CC9EA900691C0C /* ShipmentDHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51323CC9EA900691C0C /* ShipmentDHL.swift */; };
+		DBE9E51623CC9F0000691C0C /* PlaceDHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51523CC9F0000691C0C /* PlaceDHL.swift */; };
+		DBE9E51A23CDA82C00691C0C /* DHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51923CDA82B00691C0C /* DHL.swift */; };
+		DBE9E51C23CDACA700691C0C /* EventDHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51B23CDACA700691C0C /* EventDHL.swift */; };
+		DBE9E51E23CDAD2B00691C0C /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51D23CDAD2B00691C0C /* StatusCode.swift */; };
+		DBE9E52123CDC59400691C0C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E52023CDC59400691C0C /* ActivityIndicator.swift */; };
+		DBE9E52323CDD44B00691C0C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E52223CDD44B00691C0C /* MapView.swift */; };
+		DBE9E52723CDE8B200691C0C /* ShipmentGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E52623CDE8B200691C0C /* ShipmentGraph.swift */; };
+		DBF9A58223CBBD0600BADD52 /* PackageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A58123CBBD0600BADD52 /* PackageListView.swift */; };
+		DBF9A58423CBBD4000BADD52 /* PackageDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A58323CBBD4000BADD52 /* PackageDetailsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DBDAB36B23C4A1FF001924CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBDAB34923C4A1F7001924CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBDAB35023C4A1F7001924CE;
+			remoteInfo = Tracel;
+		};
+		DBDAB37623C4A1FF001924CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBDAB34923C4A1F7001924CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBDAB35023C4A1F7001924CE;
+			remoteInfo = Tracel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DB2064D923D0DC4700962097 /* Tracel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tracel.entitlements; sourceTree = "<group>"; };
+		DB60ADA823E03FAA005D8458 /* NewPackageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPackageView.swift; sourceTree = "<group>"; };
+		DB60ADAB23E0411B005D8458 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		DB60ADAD23E042F4005D8458 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		DB60ADAF23E04761005D8458 /* ServiceProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviders.swift; sourceTree = "<group>"; };
+		DB7D11F223E0273A0002B897 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		DB7D11F423E02DE00002B897 /* ShipmentDetaliCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDetaliCard.swift; sourceTree = "<group>"; };
+		DB7FCBF523D592490007250A /* Shipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shipment.swift; sourceTree = "<group>"; };
+		DB7FCBF923D5B8450007250A /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		DB7FCBFB23D5B8C30007250A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		DB7FCC0023D5B9830007250A /* ShipmentInpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentInpost.swift; sourceTree = "<group>"; };
+		DBDAB35123C4A1F7001924CE /* Tracel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBDAB35423C4A1F7001924CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DBDAB35623C4A1F7001924CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DBDAB35923C4A1F7001924CE /* Tracel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tracel.xcdatamodel; sourceTree = "<group>"; };
+		DBDAB35D23C4A1FF001924CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DBDAB36023C4A1FF001924CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DBDAB36323C4A1FF001924CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DBDAB36523C4A1FF001924CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBDAB36A23C4A1FF001924CE /* TracelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TracelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBDAB36E23C4A1FF001924CE /* TracelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracelTests.swift; sourceTree = "<group>"; };
+		DBDAB37023C4A1FF001924CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBDAB37523C4A1FF001924CE /* TracelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TracelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBDAB37923C4A1FF001924CE /* TracelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracelUITests.swift; sourceTree = "<group>"; };
+		DBDAB37B23C4A1FF001924CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBE9E51323CC9EA900691C0C /* ShipmentDHL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDHL.swift; sourceTree = "<group>"; };
+		DBE9E51523CC9F0000691C0C /* PlaceDHL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDHL.swift; sourceTree = "<group>"; };
+		DBE9E51923CDA82B00691C0C /* DHL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHL.swift; sourceTree = "<group>"; };
+		DBE9E51B23CDACA700691C0C /* EventDHL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDHL.swift; sourceTree = "<group>"; };
+		DBE9E51D23CDAD2B00691C0C /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
+		DBE9E52023CDC59400691C0C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		DBE9E52223CDD44B00691C0C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		DBE9E52623CDE8B200691C0C /* ShipmentGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentGraph.swift; sourceTree = "<group>"; };
+		DBF9A58123CBBD0600BADD52 /* PackageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageListView.swift; sourceTree = "<group>"; };
+		DBF9A58323CBBD4000BADD52 /* PackageDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DBDAB34E23C4A1F7001924CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDAB36723C4A1FF001924CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDAB37223C4A1FF001924CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB60ADA723E03F9A005D8458 /* New package */ = {
+			isa = PBXGroup;
+			children = (
+				DB60ADA823E03FAA005D8458 /* NewPackageView.swift */,
+			);
+			path = "New package";
+			sourceTree = "<group>";
+		};
+		DB60ADAA23E04109005D8458 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				DB60ADAB23E0411B005D8458 /* Interactor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		DB7D11F623E0325F0002B897 /* Package list */ = {
+			isa = PBXGroup;
+			children = (
+				DBF9A58123CBBD0600BADD52 /* PackageListView.swift */,
+			);
+			path = "Package list";
+			sourceTree = "<group>";
+		};
+		DB7D120423E03C230002B897 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DB60ADAA23E04109005D8458 /* Interactor */,
+				DB60ADA723E03F9A005D8458 /* New package */,
+				DB7D11F623E0325F0002B897 /* Package list */,
+				DB7D120523E03D510002B897 /* Package details */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		DB7D120523E03D510002B897 /* Package details */ = {
+			isa = PBXGroup;
+			children = (
+				DBF9A58323CBBD4000BADD52 /* PackageDetailsView.swift */,
+				DB7D11F423E02DE00002B897 /* ShipmentDetaliCard.swift */,
+				DBE9E52623CDE8B200691C0C /* ShipmentGraph.swift */,
+			);
+			path = "Package details";
+			sourceTree = "<group>";
+		};
+		DB7FCBF423D592380007250A /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				DB7FCBF523D592490007250A /* Shipment.swift */,
+				DB7FCBF923D5B8450007250A /* Place.swift */,
+				DB7FCBFB23D5B8C30007250A /* Event.swift */,
+				DBE9E51D23CDAD2B00691C0C /* StatusCode.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		DB7FCBFD23D5B9650007250A /* Inpost */ = {
+			isa = PBXGroup;
+			children = (
+				DB7FCC0023D5B9830007250A /* ShipmentInpost.swift */,
+			);
+			path = Inpost;
+			sourceTree = "<group>";
+		};
+		DBDAB34823C4A1F7001924CE = {
+			isa = PBXGroup;
+			children = (
+				DBDAB35323C4A1F7001924CE /* Tracel */,
+				DBDAB36D23C4A1FF001924CE /* TracelTests */,
+				DBDAB37823C4A1FF001924CE /* TracelUITests */,
+				DBDAB35223C4A1F7001924CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DBDAB35223C4A1F7001924CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DBDAB35123C4A1F7001924CE /* Tracel.app */,
+				DBDAB36A23C4A1FF001924CE /* TracelTests.xctest */,
+				DBDAB37523C4A1FF001924CE /* TracelUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DBDAB35323C4A1F7001924CE /* Tracel */ = {
+			isa = PBXGroup;
+			children = (
+				DB2064D923D0DC4700962097 /* Tracel.entitlements */,
+				DBE9E51F23CDC58300691C0C /* Components */,
+				DBE9E51123CC9E4D00691C0C /* Entities */,
+				DB7D120423E03C230002B897 /* Modules */,
+				DBDAB35423C4A1F7001924CE /* AppDelegate.swift */,
+				DBDAB35623C4A1F7001924CE /* SceneDelegate.swift */,
+				DBDAB35D23C4A1FF001924CE /* Assets.xcassets */,
+				DBDAB36223C4A1FF001924CE /* LaunchScreen.storyboard */,
+				DBDAB36523C4A1FF001924CE /* Info.plist */,
+				DBDAB35823C4A1F7001924CE /* Tracel.xcdatamodeld */,
+				DBDAB35F23C4A1FF001924CE /* Preview Content */,
+			);
+			path = Tracel;
+			sourceTree = "<group>";
+		};
+		DBDAB35F23C4A1FF001924CE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DBDAB36023C4A1FF001924CE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DBDAB36D23C4A1FF001924CE /* TracelTests */ = {
+			isa = PBXGroup;
+			children = (
+				DBDAB36E23C4A1FF001924CE /* TracelTests.swift */,
+				DBDAB37023C4A1FF001924CE /* Info.plist */,
+			);
+			path = TracelTests;
+			sourceTree = "<group>";
+		};
+		DBDAB37823C4A1FF001924CE /* TracelUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DBDAB37923C4A1FF001924CE /* TracelUITests.swift */,
+				DBDAB37B23C4A1FF001924CE /* Info.plist */,
+			);
+			path = TracelUITests;
+			sourceTree = "<group>";
+		};
+		DBE9E51123CC9E4D00691C0C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DB60ADAF23E04761005D8458 /* ServiceProviders.swift */,
+				DB7FCBF423D592380007250A /* Generic */,
+				DB7FCBFD23D5B9650007250A /* Inpost */,
+				DBE9E51223CC9E5800691C0C /* DHL */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		DBE9E51223CC9E5800691C0C /* DHL */ = {
+			isa = PBXGroup;
+			children = (
+				DBE9E51323CC9EA900691C0C /* ShipmentDHL.swift */,
+				DBE9E51523CC9F0000691C0C /* PlaceDHL.swift */,
+				DBE9E51B23CDACA700691C0C /* EventDHL.swift */,
+				DBE9E51923CDA82B00691C0C /* DHL.swift */,
+			);
+			path = DHL;
+			sourceTree = "<group>";
+		};
+		DBE9E51F23CDC58300691C0C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DBE9E52023CDC59400691C0C /* ActivityIndicator.swift */,
+				DBE9E52223CDD44B00691C0C /* MapView.swift */,
+				DB7D11F223E0273A0002B897 /* String.swift */,
+				DB60ADAD23E042F4005D8458 /* NetworkError.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DBDAB35023C4A1F7001924CE /* Tracel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBDAB37E23C4A1FF001924CE /* Build configuration list for PBXNativeTarget "Tracel" */;
+			buildPhases = (
+				DBDAB34D23C4A1F7001924CE /* Sources */,
+				DBDAB34E23C4A1F7001924CE /* Frameworks */,
+				DBDAB34F23C4A1F7001924CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tracel;
+			productName = Tracel;
+			productReference = DBDAB35123C4A1F7001924CE /* Tracel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DBDAB36923C4A1FF001924CE /* TracelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBDAB38123C4A1FF001924CE /* Build configuration list for PBXNativeTarget "TracelTests" */;
+			buildPhases = (
+				DBDAB36623C4A1FF001924CE /* Sources */,
+				DBDAB36723C4A1FF001924CE /* Frameworks */,
+				DBDAB36823C4A1FF001924CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBDAB36C23C4A1FF001924CE /* PBXTargetDependency */,
+			);
+			name = TracelTests;
+			productName = TracelTests;
+			productReference = DBDAB36A23C4A1FF001924CE /* TracelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DBDAB37423C4A1FF001924CE /* TracelUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBDAB38423C4A1FF001924CE /* Build configuration list for PBXNativeTarget "TracelUITests" */;
+			buildPhases = (
+				DBDAB37123C4A1FF001924CE /* Sources */,
+				DBDAB37223C4A1FF001924CE /* Frameworks */,
+				DBDAB37323C4A1FF001924CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBDAB37723C4A1FF001924CE /* PBXTargetDependency */,
+			);
+			name = TracelUITests;
+			productName = TracelUITests;
+			productReference = DBDAB37523C4A1FF001924CE /* TracelUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DBDAB34923C4A1F7001924CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Maciej Sączewski";
+				TargetAttributes = {
+					DBDAB35023C4A1F7001924CE = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					DBDAB36923C4A1FF001924CE = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = DBDAB35023C4A1F7001924CE;
+					};
+					DBDAB37423C4A1FF001924CE = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = DBDAB35023C4A1F7001924CE;
+					};
+				};
+			};
+			buildConfigurationList = DBDAB34C23C4A1F7001924CE /* Build configuration list for PBXProject "Tracel" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DBDAB34823C4A1F7001924CE;
+			productRefGroup = DBDAB35223C4A1F7001924CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DBDAB35023C4A1F7001924CE /* Tracel */,
+				DBDAB36923C4A1FF001924CE /* TracelTests */,
+				DBDAB37423C4A1FF001924CE /* TracelUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DBDAB34F23C4A1F7001924CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBDAB36423C4A1FF001924CE /* LaunchScreen.storyboard in Resources */,
+				DBDAB36123C4A1FF001924CE /* Preview Assets.xcassets in Resources */,
+				DBDAB35E23C4A1FF001924CE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDAB36823C4A1FF001924CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDAB37323C4A1FF001924CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DBDAB34D23C4A1F7001924CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB7D11F323E0273A0002B897 /* String.swift in Sources */,
+				DBE9E51423CC9EA900691C0C /* ShipmentDHL.swift in Sources */,
+				DBE9E52323CDD44B00691C0C /* MapView.swift in Sources */,
+				DBE9E51E23CDAD2B00691C0C /* StatusCode.swift in Sources */,
+				DB7D11F523E02DE00002B897 /* ShipmentDetaliCard.swift in Sources */,
+				DBDAB35A23C4A1F7001924CE /* Tracel.xcdatamodeld in Sources */,
+				DBDAB35523C4A1F7001924CE /* AppDelegate.swift in Sources */,
+				DBDAB35723C4A1F7001924CE /* SceneDelegate.swift in Sources */,
+				DBE9E52123CDC59400691C0C /* ActivityIndicator.swift in Sources */,
+				DB60ADAE23E042F4005D8458 /* NetworkError.swift in Sources */,
+				DBE9E51C23CDACA700691C0C /* EventDHL.swift in Sources */,
+				DB7FCBFC23D5B8C30007250A /* Event.swift in Sources */,
+				DBE9E51A23CDA82C00691C0C /* DHL.swift in Sources */,
+				DB60ADAC23E0411B005D8458 /* Interactor.swift in Sources */,
+				DB60ADA923E03FAA005D8458 /* NewPackageView.swift in Sources */,
+				DB7FCC0123D5B9830007250A /* ShipmentInpost.swift in Sources */,
+				DBE9E51623CC9F0000691C0C /* PlaceDHL.swift in Sources */,
+				DB7FCBF623D592490007250A /* Shipment.swift in Sources */,
+				DB7FCBFA23D5B8450007250A /* Place.swift in Sources */,
+				DBF9A58423CBBD4000BADD52 /* PackageDetailsView.swift in Sources */,
+				DBE9E52723CDE8B200691C0C /* ShipmentGraph.swift in Sources */,
+				DBF9A58223CBBD0600BADD52 /* PackageListView.swift in Sources */,
+				DB60ADB023E04761005D8458 /* ServiceProviders.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDAB36623C4A1FF001924CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBDAB36F23C4A1FF001924CE /* TracelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDAB37123C4A1FF001924CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBDAB37A23C4A1FF001924CE /* TracelUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DBDAB36C23C4A1FF001924CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBDAB35023C4A1F7001924CE /* Tracel */;
+			targetProxy = DBDAB36B23C4A1FF001924CE /* PBXContainerItemProxy */;
+		};
+		DBDAB37723C4A1FF001924CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBDAB35023C4A1F7001924CE /* Tracel */;
+			targetProxy = DBDAB37623C4A1FF001924CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DBDAB36223C4A1FF001924CE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBDAB36323C4A1FF001924CE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DBDAB37C23C4A1FF001924CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DBDAB37D23C4A1FF001924CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DBDAB37F23C4A1FF001924CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tracel/Tracel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Tracel/Preview Content\"";
+				DEVELOPMENT_TEAM = U6CZ4PM7MY;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Tracel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.saczewski.maciej.Tracel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DBDAB38023C4A1FF001924CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tracel/Tracel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Tracel/Preview Content\"";
+				DEVELOPMENT_TEAM = U6CZ4PM7MY;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Tracel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.saczewski.maciej.Tracel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DBDAB38223C4A1FF001924CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U6CZ4PM7MY;
+				INFOPLIST_FILE = TracelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.saczewski.maciej.TracelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tracel.app/Tracel";
+			};
+			name = Debug;
+		};
+		DBDAB38323C4A1FF001924CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U6CZ4PM7MY;
+				INFOPLIST_FILE = TracelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.saczewski.maciej.TracelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tracel.app/Tracel";
+			};
+			name = Release;
+		};
+		DBDAB38523C4A1FF001924CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U6CZ4PM7MY;
+				INFOPLIST_FILE = TracelUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.saczewski.maciej.TracelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Tracel;
+			};
+			name = Debug;
+		};
+		DBDAB38623C4A1FF001924CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U6CZ4PM7MY;
+				INFOPLIST_FILE = TracelUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.saczewski.maciej.TracelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Tracel;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DBDAB34C23C4A1F7001924CE /* Build configuration list for PBXProject "Tracel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBDAB37C23C4A1FF001924CE /* Debug */,
+				DBDAB37D23C4A1FF001924CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBDAB37E23C4A1FF001924CE /* Build configuration list for PBXNativeTarget "Tracel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBDAB37F23C4A1FF001924CE /* Debug */,
+				DBDAB38023C4A1FF001924CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBDAB38123C4A1FF001924CE /* Build configuration list for PBXNativeTarget "TracelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBDAB38223C4A1FF001924CE /* Debug */,
+				DBDAB38323C4A1FF001924CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBDAB38423C4A1FF001924CE /* Build configuration list for PBXNativeTarget "TracelUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBDAB38523C4A1FF001924CE /* Debug */,
+				DBDAB38623C4A1FF001924CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DBDAB35823C4A1F7001924CE /* Tracel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DBDAB35923C4A1F7001924CE /* Tracel.xcdatamodel */,
+			);
+			currentVersion = DBDAB35923C4A1F7001924CE /* Tracel.xcdatamodel */;
+			path = Tracel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DBDAB34923C4A1F7001924CE /* Project object */;
+}
