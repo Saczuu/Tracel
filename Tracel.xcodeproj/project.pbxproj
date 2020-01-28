@@ -11,6 +11,8 @@
 		DB60ADAC23E0411B005D8458 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAB23E0411B005D8458 /* Interactor.swift */; };
 		DB60ADAE23E042F4005D8458 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAD23E042F4005D8458 /* NetworkError.swift */; };
 		DB60ADB023E04761005D8458 /* ServiceProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAF23E04761005D8458 /* ServiceProviders.swift */; };
+		DB71793023E0B52900DDD9FD /* EventInpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71792F23E0B52900DDD9FD /* EventInpost.swift */; };
+		DB71793223E0C15B00DDD9FD /* StatusesInpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71793123E0C15B00DDD9FD /* StatusesInpost.swift */; };
 		DB7D11F323E0273A0002B897 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D11F223E0273A0002B897 /* String.swift */; };
 		DB7D11F523E02DE00002B897 /* ShipmentDetaliCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D11F423E02DE00002B897 /* ShipmentDetaliCard.swift */; };
 		DB7FCBF623D592490007250A /* Shipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7FCBF523D592490007250A /* Shipment.swift */; };
@@ -60,6 +62,8 @@
 		DB60ADAB23E0411B005D8458 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		DB60ADAD23E042F4005D8458 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DB60ADAF23E04761005D8458 /* ServiceProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviders.swift; sourceTree = "<group>"; };
+		DB71792F23E0B52900DDD9FD /* EventInpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInpost.swift; sourceTree = "<group>"; };
+		DB71793123E0C15B00DDD9FD /* StatusesInpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusesInpost.swift; sourceTree = "<group>"; };
 		DB7D11F223E0273A0002B897 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DB7D11F423E02DE00002B897 /* ShipmentDetaliCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDetaliCard.swift; sourceTree = "<group>"; };
 		DB7FCBF523D592490007250A /* Shipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shipment.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				DB7FCC0023D5B9830007250A /* ShipmentInpost.swift */,
+				DB71792F23E0B52900DDD9FD /* EventInpost.swift */,
+				DB71793123E0C15B00DDD9FD /* StatusesInpost.swift */,
 			);
 			path = Inpost;
 			sourceTree = "<group>";
@@ -416,6 +422,7 @@
 				DB7D11F523E02DE00002B897 /* ShipmentDetaliCard.swift in Sources */,
 				DBDAB35A23C4A1F7001924CE /* Tracel.xcdatamodeld in Sources */,
 				DBDAB35523C4A1F7001924CE /* AppDelegate.swift in Sources */,
+				DB71793223E0C15B00DDD9FD /* StatusesInpost.swift in Sources */,
 				DBDAB35723C4A1F7001924CE /* SceneDelegate.swift in Sources */,
 				DBE9E52123CDC59400691C0C /* ActivityIndicator.swift in Sources */,
 				DB60ADAE23E042F4005D8458 /* NetworkError.swift in Sources */,
@@ -429,6 +436,7 @@
 				DB7FCBF623D592490007250A /* Shipment.swift in Sources */,
 				DB7FCBFA23D5B8450007250A /* Place.swift in Sources */,
 				DBF9A58423CBBD4000BADD52 /* PackageDetailsView.swift in Sources */,
+				DB71793023E0B52900DDD9FD /* EventInpost.swift in Sources */,
 				DBE9E52723CDE8B200691C0C /* ShipmentGraph.swift in Sources */,
 				DBF9A58223CBBD0600BADD52 /* PackageListView.swift in Sources */,
 				DB60ADB023E04761005D8458 /* ServiceProviders.swift in Sources */,

@@ -25,7 +25,7 @@ struct ShipmentDetaliCard: View {
             Text("Current status")
                 .font(.headline)
             HStack {
-                Text("\(shipment.status.description?.capitalizingFirstLetter() ?? "No event details")")
+                Text("\(shipment.status.description?.capitalizingFirstLetter() ?? shipment.status.status ?? "No status info")")
                 Spacer()
             }
             HStack {

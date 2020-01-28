@@ -16,7 +16,7 @@ class ShipmentInpost: Shipment {
         case origin
         case destination =  "custom_attributes"
         case status
-        case events
+        case events = "tracking_details"
         case status_timestamp = "updated_at"
     }
     
@@ -39,7 +39,7 @@ class ShipmentInpost: Shipment {
         
         let timestamp = try container.decode(String.self, forKey: .status_timestamp)
         let status = try container.decode(String.self, forKey: .status)
-        self.status = Event(timestamp: timestamp, status: status, description: status)
+        self.status = EventInpost(status: status, timestamp: timestamp)
         
         //"tracking_details\":[{\"status\":\"delivered\",\"origin_status\":\"DOR\",\"agency\":null,\"datetime\":\"2020-01-15T07:51:16.000+01:00\"}
         
@@ -56,6 +56,6 @@ class ShipmentInpost: Shipment {
             self.destination = nil
         }
         
-        self.events = []
+        self.events = try container.decode([EventInpost].self, forKey: .events)
     }
 }

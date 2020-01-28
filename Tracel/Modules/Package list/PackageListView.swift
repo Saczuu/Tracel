@@ -33,7 +33,7 @@ struct PackageListView: View {
                 }
                 .navigationBarItems(trailing:
                     Button(action: {
-                        self.showModalNewPacakageView.toggle()
+                        self.showModalNewPacakageView = true
                     }) {
                         Image(systemName: "plus")
                     }.sheet(isPresented: self.$showModalNewPacakageView, content: {

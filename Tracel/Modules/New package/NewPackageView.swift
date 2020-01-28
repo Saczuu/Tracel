@@ -32,7 +32,9 @@ struct NewPackageView: View {
                 }
                 HStack {
                     Button(action: {
-                        self.saveNewPackage()
+                        if self.trackingNumber != "" {
+                            self.saveNewPackage()
+                        }
                     }) {
                         Text("Add new package")
                     }
@@ -46,15 +48,32 @@ struct NewPackageView: View {
     
     func saveNewPackage() {
         let package: Package = Package(context: self.moc)
+        package.id = UUID()
         package.tracking_number = self.trackingNumber
         package.service_provider = self.services[self.pickedService]
         self.interactor.fetchPackageData(package: package) { (result) in
             switch result {
-            case .success(_):
-                try! self.moc.save()
-                self.presentationMode.wrappedValue.dismiss()
+            case .success(let data):
+                do {
+                    switch ServiceProviders(rawValue: self.services[self.pickedService]) {
+                    case .dhl:
+                        _ = self.interactor.decodeDhlIntoShipment(from: data)
+                        try! self.moc.save()
+                        self.presentationMode.wrappedValue.dismiss()
+                    case .inpost:
+                        _ = self.interactor.decodeInpostIntoShipment(from: data)
+                        try! self.moc.save()
+                        self.presentationMode.wrappedValue.dismiss()
+                    case .none:
+                        print("To handle")
+                    }
+                }
+                catch {
+                    print("To handle")
+                }
             case .failure(_):
                 print("To handle")
+                
             }
         }
     }

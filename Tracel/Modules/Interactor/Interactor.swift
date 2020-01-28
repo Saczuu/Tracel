@@ -39,6 +39,23 @@ class Interactor {
             result(.failure(.unableToFetch))
         }
     }
+    
+    func fetchInpostStatuses(result: @escaping (Result<StatusesInpost, NetworkError>) -> Void ){
+        let url = URL(string: "https://api-shipx-pl.easypack24.net/v1/statuses")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            let json = JSONDecoder()
+            do {
+                let statuses = try! json.decode(StatusesInpost.self, from: data!)
+                result(.success(statuses))
+            } catch {
+                result(.failure(NetworkError.unableToFetch))
+            }
+        }.resume()
+    }
+    
     // MARK: - Decoders for package
     func decodeDhlIntoShipment(from data: Data) -> Shipment {
         let json = JSONDecoder()

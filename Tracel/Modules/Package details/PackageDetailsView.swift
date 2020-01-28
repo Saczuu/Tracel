@@ -63,7 +63,6 @@ struct PackageDetailsView: View {
             }
         }
         .onAppear {
-            //            self.trackDhlParcel(with: self.packageNumber)
             self.interactor.fetchPackageData(package: self.package) { response in
                 switch response {
                 case .failure(_) :
