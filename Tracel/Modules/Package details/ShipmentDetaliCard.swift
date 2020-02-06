@@ -24,10 +24,8 @@ struct ShipmentDetaliCard: View {
             Divider()
             Text("Current status")
                 .font(.headline)
-            HStack {
-                Text("\(shipment.status.description?.capitalizingFirstLetter() ?? shipment.status.status ?? "No status info")")
-                Spacer()
-            }
+            Text("\(shipment.status.description?.capitalizingFirstLetter() ?? shipment.status.status ?? "No status info")")
+                .lineLimit(nil)
             HStack {
                 Spacer()
                 Text("\(shipment!.status.timestamp ?? "No given timestamp")")

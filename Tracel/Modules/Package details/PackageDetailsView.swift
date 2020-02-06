@@ -18,66 +18,75 @@ struct PackageDetailsView: View {
     @State var shipment: Shipment? = nil
     
     var body: some View {
-        ZStack {
-            ActivityIndicator(isAnimating: $isLoading, style: .medium)
+        List {
             if isLoading == false {
-                List {
-                    VStack(alignment: .leading) {
-                        MapView()
-                            .frame(height: 300)
-                            .padding([.top, .leading, .trailing], -20)
-                        ShipmentDetaliCard(shipment: self.shipment!)
-                        HStack {
-                            Spacer()
-                            ShipmentGraph(statusCode: shipment!.status!.statusCode ?? StatusCode.unknown)
-                            Spacer()
-                        }
-                        HStack {
-                            Text("History of package")
-                                .font(.headline)
-                            Spacer()
-                        }.padding(.bottom, 10)
-                        if (shipment!.events != nil) {
-                            ForEach (shipment!.events!, id: \.timestamp) { event in
-                                VStack {
-                                    HStack {
-                                        Text("\(event.description ?? "No event details")")
-                                        Spacer()
-                                    }
-                                    .padding(.bottom, 10)
-                                    HStack {
-                                        Spacer()
-                                        Text("\(event.timestamp ?? "No given timestamp")")
-                                            .font(.system(size: 8))
-                                            .foregroundColor(.gray)
-                                    }
-                                    Divider()
-                                }
+                VStack(alignment: .leading) {
+                    MapView(origin: self.shipment?.origin, destination: self.shipment?.destination)
+                        .frame(height: 300)
+                        .padding([.top, .leading, .trailing], -20)
+                    ShipmentDetaliCard(shipment: self.shipment!)
+                    HStack {
+                        Spacer()
+                        ShipmentGraph(statusCode: shipment!.status!.statusCode ?? StatusCode.unknown)
+                        Spacer()
+                    }
+                    Text("History of package")
+                        .font(.headline)
+                        .padding(.bottom, 10)
+                    ForEach (shipment!.events!, id: \.timestamp) { event in
+                        VStack {
+                            HStack {
+                                Text("\(event.description ?? "No event details")")
+                                Spacer()
                             }
+                            .padding(.bottom, 10)
+                            HStack {
+                                Spacer()
+                                Text("\(event.timestamp ?? "No given timestamp")")
+                                    .font(.system(size: 8))
+                                    .foregroundColor(.gray)
+                            }
+                            Divider()
                         }
                     }
                 }
-                .listStyle(GroupedListStyle())
-                .environment(\.horizontalSizeClass, .regular)
-                .navigationBarTitle("Package details")
+            } else {
+                VStack(alignment: .center) {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        ActivityIndicator(isAnimating: self.$isLoading, style: .medium)
+                        Spacer()
+                    }
+                    Spacer()
+                }
+                .frame(minHeight: 800, maxHeight: .infinity)
             }
         }
+        .navigationBarTitle(Text("Package details"))
         .onAppear {
-            self.interactor.fetchPackageData(package: self.package) { response in
-                switch response {
-                case .failure(_) :
-                    print("Error with featching")
-                case .success(let data) :
-                    switch ServiceProviders(rawValue: self.package.service_provider!) {
-                    case .inpost :
-                        self.shipment = self.interactor.decodeInpostIntoShipment(from: data)
-                        self.isLoading.toggle()
-                    case .dhl :
-                        self.shipment = self.interactor.decodeDhlIntoShipment(from: data)
-                        self.isLoading.toggle()
-                    case .none:
-                        print("Error")
-                    }
+            try! self.decodeShipment(package: self.package)
+//            self.interactor.fetchUPS()
+        }
+        .listStyle(GroupedListStyle())
+        .environment(\.horizontalSizeClass, .regular)
+    }
+    
+    func decodeShipment(package: Package) {
+        self.interactor.fetchPackageData(package: package) { response in
+            switch response {
+            case .failure(_) :
+                print("Error with featching")
+            case .success(let data) :
+                switch ServiceProviders(rawValue: self.package.service_provider!) {
+                case .inpost :
+                    self.shipment = try! self.interactor.decodeInpostIntoShipment(from: data)
+                    self.isLoading.toggle()
+                case .dhl :
+                    self.shipment = try! self.interactor.decodeDhlIntoShipment(from: data)
+                    self.isLoading.toggle()
+                case .none:
+                    print("Error")
                 }
             }
         }

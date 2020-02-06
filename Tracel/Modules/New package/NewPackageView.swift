@@ -16,64 +16,85 @@ struct NewPackageView: View {
     
     var services = ["DHL", "Inpost"]
     
+    @State var description: String = ""
     @State var trackingNumber: String = ""
     @State var pickedService: Int = 0
     
+    @State var isValidating: Bool = false
+    @State var showError: Bool = false
+    @State var showSuccess: Bool = false
     
     var body: some View {
         NavigationView {
-            List {
-                Text("Tracking number")
-                TextField("Package ID", text: self.$trackingNumber)
-                Picker(selection: self.$pickedService, label: Text("Service")) {
-                    ForEach(0 ..< services.count) {
-                        Text(self.services[$0])
-                    }
-                }
-                HStack {
-                    Button(action: {
-                        if self.trackingNumber != "" {
-                            self.saveNewPackage()
+            if isValidating {
+                Loading(rotateIndicator: self.isValidating,
+                        showCompletion: self.showSuccess,
+                        showError: self.showError,
+                        errorString: "Unable to find your package, check your tracking number",
+                        onErrorHandler: {
+                            self.isValidating.toggle()
+                        }, onSuccessHandler: {
+                            nil
+                        })
+                .padding()
+            } else {
+                List {
+                    Text("Description")
+                    TextField("Package description", text: self.$description)
+                    Text("Tracking number")
+                    TextField("Package ID", text: self.$trackingNumber)
+                    Picker(selection: self.$pickedService, label: Text("Service")) {
+                        ForEach(0 ..< services.count) {
+                            Text(self.services[$0])
                         }
-                    }) {
-                        Text("Add new package")
+                    }
+                    HStack {
+                        Button(action: {
+                            if self.trackingNumber != "" {
+                                self.isValidating.toggle()
+                                self.saveNewPackage(package_number: self.trackingNumber, service_provider: self.services[self.pickedService])
+                            }
+                        }) {
+                            Text("Add new package")
+                        }
                     }
                 }
+                .listStyle(GroupedListStyle())
+                .environment(\.horizontalSizeClass, .regular)
+                .navigationBarTitle(Text("Add package"))
             }
-            .listStyle(GroupedListStyle())
-            .environment(\.horizontalSizeClass, .regular)
-            .navigationBarTitle(Text("Add package"))
         }
     }
     
-    func saveNewPackage() {
-        let package: Package = Package(context: self.moc)
+    func saveNewPackage(package_number: String, service_provider: String) {
+        let package = Package(context: self.moc)
         package.id = UUID()
         package.tracking_number = self.trackingNumber
         package.service_provider = self.services[self.pickedService]
+        package.desc = self.description
         self.interactor.fetchPackageData(package: package) { (result) in
             switch result {
             case .success(let data):
                 do {
                     switch ServiceProviders(rawValue: self.services[self.pickedService]) {
                     case .dhl:
-                        _ = self.interactor.decodeDhlIntoShipment(from: data)
-                        try! self.moc.save()
+                        try self.interactor.decodeDhlIntoShipment(from: data)
                         self.presentationMode.wrappedValue.dismiss()
+                        try self.moc.save()
                     case .inpost:
-                        _ = self.interactor.decodeInpostIntoShipment(from: data)
-                        try! self.moc.save()
+                        try self.interactor.decodeInpostIntoShipment(from: data)
                         self.presentationMode.wrappedValue.dismiss()
+                        try self.moc.save()
                     case .none:
-                        print("To handle")
+                        self.showError.toggle()
                     }
                 }
                 catch {
-                    print("To handle")
+                    self.showError.toggle()
+                    self.moc.delete(package)
                 }
             case .failure(_):
-                print("To handle")
-                
+                self.showError.toggle()
             }
         }
     }

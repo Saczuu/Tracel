@@ -25,6 +25,7 @@ class Interactor {
                 }
                 result(.success(data))
             }.resume()
+            
         case .inpost:
             guard let url = URL(string: "https://api-shipx-pl.easypack24.net/v1/tracking/\(package.tracking_number!)?") else { return }
             var request = URLRequest(url: url)
@@ -33,13 +34,47 @@ class Interactor {
                 guard let data = data else {
                     return result(.failure(.unableToFetch))
                 }
+                print(String(data: data, encoding: String.Encoding.utf8) )
                 result(.success(data))
             }.resume()
+            
         case .none:
             result(.failure(.unableToFetch))
         }
     }
     
+    func fetchUPS() {
+        //https://wwwcie.ups.com/rest/Track
+        guard var url = URLComponents(string: "https://wwwcie.ups.com/rest/Track") else { return }
+        let params = ["UPSSecurity": [
+            "UsernameToken": [
+                "Username": "saczewski.maciej@outlook.com",
+                "Password": "zitki1-rUvtib-dicpup"],
+            "ServiceAccessToken": [
+                "AccessLicenseNumber": "Your Access License Number"
+            ]],
+            "TrackRequest": [
+                "Request": [
+                    "RequestOption": "1",
+                    "TransactionReference": [
+                        "CustomerContext": "Your Test Case Summary Description"
+                    ]
+                ],
+                "InquiryNumber": "1Z9R5F466806049785"
+            ]
+        ]
+        var request = URLRequest(url: url.url!)
+        request.httpMethod = "POST"
+        request.httpBody = try! JSONSerialization.data(withJSONObject: params, options: [])
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                return
+            }
+            print(String(data: data, encoding: String.Encoding.utf8))
+        }.resume()
+    }
+    
+    // MARK: - INPOST
     func fetchInpostStatuses(result: @escaping (Result<StatusesInpost, NetworkError>) -> Void ){
         let url = URL(string: "https://api-shipx-pl.easypack24.net/v1/statuses")
         var request = URLRequest(url: url!)
@@ -57,14 +92,14 @@ class Interactor {
     }
     
     // MARK: - Decoders for package
-    func decodeDhlIntoShipment(from data: Data) -> Shipment {
+    func decodeDhlIntoShipment(from data: Data) throws -> Shipment {
         let json = JSONDecoder()
-        let dhl = try! json.decode(DHL.self, from: data)
+        let dhl = try json.decode(DHL.self, from: data)
         return dhl.shipments.first!
     }
     
-    func decodeInpostIntoShipment(from data: Data) -> Shipment {
+    func decodeInpostIntoShipment(from data: Data) throws -> Shipment {
         let json = JSONDecoder()
-        return try! json.decode(ShipmentInpost.self, from: data)
+        return try json.decode(ShipmentInpost.self, from: data)
     }
 }

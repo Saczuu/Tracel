@@ -13,8 +13,10 @@ struct PackageListView: View {
     @State var showModalNewPacakageView: Bool = false
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Package.entity(), sortDescriptors: []) var packages: FetchedResults<Package>
+    @FetchRequest(entity: Package.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Package.service_provider, ascending: false)]) var packages: FetchedResults<Package>
     
+    
+    let servicesColors = ["Inpost": "inpost_logo", "DHL": "dhl_logo"]
     
     init() {
         UITableView.appearance().tableFooterView = UIView()
@@ -26,8 +28,17 @@ struct PackageListView: View {
                 List {
                     ForEach (packages, id: \.id) { package in
                         NavigationLink(destination: PackageDetailsView(package: package)) {
-                            Text(package.tracking_number ?? "Unknown tracking number")
-                            Text(package.service_provider ?? "Unknow service provider")
+                            VStack(alignment: .leading) {
+                                Text(package.desc ?? "No description")
+                                Text(package.tracking_number ?? "Unknown tracking number")
+                                HStack {
+                                    Spacer()
+                                    Text(package.service_provider ?? "Unknow service provider")
+                                        .font(.footnote)
+                                }
+                            }
+                            .padding()
+                            .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: 100, maxHeight: 100)
                         }
                     }.onDelete(perform: removePackage)
                 }

@@ -11,10 +11,13 @@ import MapKit
 import CoreLocation
 
 struct MapView: UIViewRepresentable {
+    
+    var origin: Place?
+    var destination: Place?
+    
     class Coordinator: NSObject, MKMapViewDelegate {
         
     }
-    //MARK: - TEMP
     //MARK: - Show MapView
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
@@ -24,6 +27,46 @@ struct MapView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
+        if origin != nil {
+            self.showOrigin(view: uiView)
+        }
+        if destination != nil {
+            self.showDestination(view: uiView)
+        }
+        
+        uiView.showAnnotations(uiView.annotations, animated: false)
+    }
+    
+    func showOrigin(view: MKMapView) {
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(self.origin!.addressLocality!) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+            else { return }
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location.coordinate
+            annotation.title = self.origin!.addressLocality!
+            annotation.subtitle = "Origin"
+            view.addAnnotation(annotation)
+            view.showAnnotations(view.annotations, animated: false)
+        }
+    }
+    
+    func showDestination(view: MKMapView) {
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(self.destination!.addressLocality!) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+            else { return }
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location.coordinate
+            annotation.title = self.destination!.addressLocality!
+            annotation.subtitle = "Destination"
+            view.addAnnotation(annotation)
+            view.showAnnotations(view.annotations, animated: false)
+        }
     }
     
     func makeCoordinator() -> MapView.Coordinator {
@@ -36,4 +79,3 @@ struct MapView_Previews: PreviewProvider {
         MapView()
     }
 }
-

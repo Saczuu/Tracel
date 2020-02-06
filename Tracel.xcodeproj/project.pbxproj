@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1EB80623E882D5009A4101 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1EB80523E882D5009A4101 /* Loading.swift */; };
 		DB60ADA923E03FAA005D8458 /* NewPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADA823E03FAA005D8458 /* NewPackageView.swift */; };
 		DB60ADAC23E0411B005D8458 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAB23E0411B005D8458 /* Interactor.swift */; };
 		DB60ADAE23E042F4005D8458 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAD23E042F4005D8458 /* NetworkError.swift */; };
@@ -27,6 +28,7 @@
 		DBDAB36423C4A1FF001924CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDAB36223C4A1FF001924CE /* LaunchScreen.storyboard */; };
 		DBDAB36F23C4A1FF001924CE /* TracelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB36E23C4A1FF001924CE /* TracelTests.swift */; };
 		DBDAB37A23C4A1FF001924CE /* TracelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB37923C4A1FF001924CE /* TracelUITests.swift */; };
+		DBDEF1EE23E161DE00E444FB /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDEF1ED23E161DE00E444FB /* VisualEffectView.swift */; };
 		DBE9E51423CC9EA900691C0C /* ShipmentDHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51323CC9EA900691C0C /* ShipmentDHL.swift */; };
 		DBE9E51623CC9F0000691C0C /* PlaceDHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51523CC9F0000691C0C /* PlaceDHL.swift */; };
 		DBE9E51A23CDA82C00691C0C /* DHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51923CDA82B00691C0C /* DHL.swift */; };
@@ -57,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB1EB80523E882D5009A4101 /* Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		DB2064D923D0DC4700962097 /* Tracel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tracel.entitlements; sourceTree = "<group>"; };
 		DB60ADA823E03FAA005D8458 /* NewPackageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPackageView.swift; sourceTree = "<group>"; };
 		DB60ADAB23E0411B005D8458 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		DBDAB37523C4A1FF001924CE /* TracelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TracelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDAB37923C4A1FF001924CE /* TracelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracelUITests.swift; sourceTree = "<group>"; };
 		DBDAB37B23C4A1FF001924CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBDEF1ED23E161DE00E444FB /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		DBE9E51323CC9EA900691C0C /* ShipmentDHL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDHL.swift; sourceTree = "<group>"; };
 		DBE9E51523CC9F0000691C0C /* PlaceDHL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDHL.swift; sourceTree = "<group>"; };
 		DBE9E51923CDA82B00691C0C /* DHL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHL.swift; sourceTree = "<group>"; };
@@ -161,7 +165,6 @@
 			children = (
 				DBF9A58323CBBD4000BADD52 /* PackageDetailsView.swift */,
 				DB7D11F423E02DE00002B897 /* ShipmentDetaliCard.swift */,
-				DBE9E52623CDE8B200691C0C /* ShipmentGraph.swift */,
 			);
 			path = "Package details";
 			sourceTree = "<group>";
@@ -210,7 +213,6 @@
 		DBDAB35323C4A1F7001924CE /* Tracel */ = {
 			isa = PBXGroup;
 			children = (
-				DB2064D923D0DC4700962097 /* Tracel.entitlements */,
 				DBE9E51F23CDC58300691C0C /* Components */,
 				DBE9E51123CC9E4D00691C0C /* Entities */,
 				DB7D120423E03C230002B897 /* Modules */,
@@ -220,6 +222,7 @@
 				DBDAB36223C4A1FF001924CE /* LaunchScreen.storyboard */,
 				DBDAB36523C4A1FF001924CE /* Info.plist */,
 				DBDAB35823C4A1F7001924CE /* Tracel.xcdatamodeld */,
+				DB2064D923D0DC4700962097 /* Tracel.entitlements */,
 				DBDAB35F23C4A1FF001924CE /* Preview Content */,
 			);
 			path = Tracel;
@@ -276,10 +279,13 @@
 		DBE9E51F23CDC58300691C0C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DBE9E52623CDE8B200691C0C /* ShipmentGraph.swift */,
 				DBE9E52023CDC59400691C0C /* ActivityIndicator.swift */,
 				DBE9E52223CDD44B00691C0C /* MapView.swift */,
+				DB1EB80523E882D5009A4101 /* Loading.swift */,
 				DB7D11F223E0273A0002B897 /* String.swift */,
 				DB60ADAD23E042F4005D8458 /* NetworkError.swift */,
+				DBDEF1ED23E161DE00E444FB /* VisualEffectView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -424,6 +430,8 @@
 				DBDAB35523C4A1F7001924CE /* AppDelegate.swift in Sources */,
 				DB71793223E0C15B00DDD9FD /* StatusesInpost.swift in Sources */,
 				DBDAB35723C4A1F7001924CE /* SceneDelegate.swift in Sources */,
+				DBDEF1EE23E161DE00E444FB /* VisualEffectView.swift in Sources */,
+				DB1EB80623E882D5009A4101 /* Loading.swift in Sources */,
 				DBE9E52123CDC59400691C0C /* ActivityIndicator.swift in Sources */,
 				DB60ADAE23E042F4005D8458 /* NetworkError.swift in Sources */,
 				DBE9E51C23CDACA700691C0C /* EventDHL.swift in Sources */,

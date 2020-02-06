@@ -22,6 +22,10 @@ class ShipmentInpost: Shipment {
     
     enum CodingKeysCustomAtributes: String, CodingKey {
         
+        case target_machine_detail
+    }
+    
+    enum CodingKeysTargetMachineDetail: String, CodingKey {
         case address
     }
     
@@ -45,7 +49,8 @@ class ShipmentInpost: Shipment {
         
         do {
             let customAttributesContiner = try container.nestedContainer(keyedBy: CodingKeysCustomAtributes.self, forKey: .destination)
-            let addressContainer = try customAttributesContiner.nestedContainer(keyedBy: CodingKeysAddress.self, forKey: .address)
+            let targetMachineContainer = try customAttributesContiner.nestedContainer(keyedBy: CodingKeysTargetMachineDetail.self, forKey: .target_machine_detail)
+            let addressContainer = try targetMachineContainer.nestedContainer(keyedBy: CodingKeysAddress.self, forKey: .address)
             let lin1 = try addressContainer.decodeIfPresent(String.self, forKey: .line1) ?? ""
             let lin2 = try addressContainer.decodeIfPresent(String.self, forKey: .line2) ?? ""
             let lin3 = try addressContainer.decodeIfPresent(String.self, forKey: .line3) ?? ""
