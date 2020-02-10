@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct NewPackageView: View {
     
@@ -34,7 +35,7 @@ struct NewPackageView: View {
                         onErrorHandler: {
                             self.isValidating.toggle()
                         }, onSuccessHandler: {
-                            nil
+                            self.presentationMode.wrappedValue.dismiss()
                         })
                 .padding()
             } else {
@@ -67,26 +68,25 @@ struct NewPackageView: View {
     }
     
     func saveNewPackage(package_number: String, service_provider: String) {
-        let package = Package(context: self.moc)
-        package.id = UUID()
-        package.tracking_number = self.trackingNumber
-        package.service_provider = self.services[self.pickedService]
-        package.desc = self.description
-        self.interactor.fetchPackageData(package: package) { (result) in
+        self.interactor.fetchPackageData(trackingNumber: self.trackingNumber, serviceProvider: ServiceProviders(rawValue: self.services[self.pickedService])! ) { (result) in
             switch result {
             case .success(let data):
                 do {
-                    guard let shipment = try self.interactor.decodePackageIntoShipment(for: package, from: data) else {
-                        self.moc.delete(package)
+                    
+                    guard let shipment = try self.interactor.decodePackageIntoShipment(for: ServiceProviders(rawValue: self.services[self.pickedService])!, from: data) else {
                         return self.showError.toggle()
                     }
+                    let package = Package(context: self.moc)
+                    package.id = UUID()
+                    package.tracking_number = self.trackingNumber
+                    package.service_provider = self.services[self.pickedService]
+                    package.desc = self.description
                     package.status_code = shipment.status.statusCode!.rawValue
-                    self.presentationMode.wrappedValue.dismiss()
                     try self.moc.save()
+                    return self.presentationMode.wrappedValue.dismiss()
                 }
                 catch {
                     self.showError.toggle()
-                    self.moc.delete(package)
                 }
             case .failure(_):
                 self.showError.toggle()

@@ -37,28 +37,21 @@ struct PackageListView: View {
                     NavigationLink(destination: PackageDetailsView(package: package)) {
                         HStack {
                             Image(systemName: self.statusIcons[package.status_code!]!)
-                            .resizable()
+                                .resizable()
                                 .foregroundColor(.white)
-                                .background(Circle().fill(self.iconColors[package.status_code!]!).scaleEffect(1.5))
+                                .background(Circle().fill(self.iconColors[package.status_code!]!).frame(width: 30, height: 30))
                                 .frame(width: 30, height: 30)
-                                .padding()
                             VStack(alignment: .leading) {
                                 Text(package.desc ?? "No description")
                                 Text(package.tracking_number ?? "Unknown tracking number")
-                                HStack {
-                                    Spacer()
-                                    Text(package.service_provider ?? "Unknow service provider")
-                                        .font(.footnote)
-                                }
                             }
                         }
-                        .padding()
                         .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: 100, maxHeight: 100)
                         .onAppear {
-                            self.interactor.fetchPackageData(package: package) { (result) in
+                            self.interactor.fetchPackageData(trackingNumber: package.tracking_number!, serviceProvider: ServiceProviders(rawValue: package.service_provider!)!) { (result) in
                                 switch result {
                                 case .success(let data):
-                                    let status = try! self.interactor.decodePackageForStatus(for: package, from: data)
+                                    let status = try? self.interactor.decodePackageForStatus(for: package, from: data)
                                     package.status_code = status!.statusCode?.rawValue
                                 case .failure(_):
                                     return

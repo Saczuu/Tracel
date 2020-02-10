@@ -11,10 +11,10 @@ import Foundation
 
 class Interactor {
     
-    func fetchPackageData(package: Package, result: @escaping (Result<Data, NetworkError>) -> Void) {
-        switch ServiceProviders(rawValue: package.service_provider!) {
+    func fetchPackageData(trackingNumber: String, serviceProvider: ServiceProviders, result: @escaping (Result<Data, NetworkError>) -> Void) {
+        switch serviceProvider {
         case .dhl:
-            guard let url = URL(string: "https://api-eu.dhl.com/track/shipments?trackingNumber=\(package.tracking_number!)") else { return }
+            guard let url = URL(string: "https://api-eu.dhl.com/track/shipments?trackingNumber=\(trackingNumber)") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -27,7 +27,7 @@ class Interactor {
             }.resume()
             
         case .inpost:
-            guard let url = URL(string: "https://api-shipx-pl.easypack24.net/v1/tracking/\(package.tracking_number!)?") else { return }
+            guard let url = URL(string: "https://api-shipx-pl.easypack24.net/v1/tracking/\(trackingNumber)?") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             URLSession.shared.dataTask(with: request) { data, response, error in
@@ -36,9 +36,6 @@ class Interactor {
                 }
                 result(.success(data))
             }.resume()
-            
-        case .none:
-            result(.failure(.unableToFetch))
         }
     }
     
@@ -52,14 +49,14 @@ class Interactor {
             "ServiceAccessToken": [
                 "AccessLicenseNumber": "Your Access License Number"
             ]],
-            "TrackRequest": [
-                "Request": [
-                    "RequestOption": "1",
-                    "TransactionReference": [
-                        "CustomerContext": "Your Test Case Summary Description"
-                    ]
-                ],
-                "InquiryNumber": "1Z9R5F466806049785"
+                      "TrackRequest": [
+                        "Request": [
+                            "RequestOption": "1",
+                            "TransactionReference": [
+                                "CustomerContext": "Your Test Case Summary Description"
+                            ]
+                        ],
+                        "InquiryNumber": "1Z9R5F466806049785"
             ]
         ]
         var request = URLRequest(url: url.url!)
@@ -92,14 +89,12 @@ class Interactor {
     
     // MARK: - Decoders for package
     
-    func decodePackageIntoShipment(for package: Package, from data: Data) throws -> Shipment? {
-        switch ServiceProviders(rawValue: package.service_provider!) {
+    func decodePackageIntoShipment(for serviceProvider: ServiceProviders, from data: Data) throws -> Shipment? {
+        switch serviceProvider {
         case .dhl:
             return try decodeDhlIntoShipment(from: data)
         case .inpost:
             return try decodeInpostIntoShipment(from: data)
-        case .none:
-            return nil
         }
     }
     
@@ -127,7 +122,7 @@ class Interactor {
     }
     
     func decodeDhlIntoStatus(from data: Data) throws -> Event {
-        let shipment = try! self.decodeDhlIntoShipment(from: data)
+        let shipment = try self.decodeDhlIntoShipment(from: data)
         return shipment.status
     }
     

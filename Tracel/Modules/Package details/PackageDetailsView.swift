@@ -73,7 +73,7 @@ struct PackageDetailsView: View {
     }
     
     func decodeShipment(package: Package) {
-        self.interactor.fetchPackageData(package: package) { response in
+        self.interactor.fetchPackageData(trackingNumber: package.tracking_number!, serviceProvider: ServiceProviders(rawValue: package.service_provider!)!) { response in
             switch response {
             case .failure(_) :
                 print("Error with featching")

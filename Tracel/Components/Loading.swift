@@ -32,7 +32,12 @@ struct Loading: View {
                 }.padding()
                 
             } else if showCompletion {
-                Text("Completion")
+                VStack {
+                    Text("Complete")
+                        .onAppear{
+                            self.onSuccessHandler()
+                    }
+                }.padding()
             } else {
                 HStack {
                     Image(systemName: "arrow.2.circlepath")
