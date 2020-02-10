@@ -81,9 +81,11 @@ struct PackageDetailsView: View {
                 switch ServiceProviders(rawValue: self.package.service_provider!) {
                 case .inpost :
                     self.shipment = try! self.interactor.decodeInpostIntoShipment(from: data)
+                    self.package.status_code = self.shipment!.status.statusCode?.rawValue
                     self.isLoading.toggle()
                 case .dhl :
                     self.shipment = try! self.interactor.decodeDhlIntoShipment(from: data)
+                    self.package.status_code = self.shipment!.status.statusCode?.rawValue
                     self.isLoading.toggle()
                 case .none:
                     print("Error")

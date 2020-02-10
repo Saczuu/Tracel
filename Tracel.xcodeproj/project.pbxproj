@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DB1EB80623E882D5009A4101 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1EB80523E882D5009A4101 /* Loading.swift */; };
+		DB5EC57123EC2F7900989F51 /* StatusDHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5EC57023EC2F7900989F51 /* StatusDHL.swift */; };
+		DB5EC57323EC465400989F51 /* StatusInpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5EC57223EC465400989F51 /* StatusInpost.swift */; };
 		DB60ADA923E03FAA005D8458 /* NewPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADA823E03FAA005D8458 /* NewPackageView.swift */; };
 		DB60ADAC23E0411B005D8458 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAB23E0411B005D8458 /* Interactor.swift */; };
 		DB60ADAE23E042F4005D8458 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAD23E042F4005D8458 /* NetworkError.swift */; };
@@ -61,6 +63,8 @@
 /* Begin PBXFileReference section */
 		DB1EB80523E882D5009A4101 /* Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		DB2064D923D0DC4700962097 /* Tracel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tracel.entitlements; sourceTree = "<group>"; };
+		DB5EC57023EC2F7900989F51 /* StatusDHL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDHL.swift; sourceTree = "<group>"; };
+		DB5EC57223EC465400989F51 /* StatusInpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusInpost.swift; sourceTree = "<group>"; };
 		DB60ADA823E03FAA005D8458 /* NewPackageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPackageView.swift; sourceTree = "<group>"; };
 		DB60ADAB23E0411B005D8458 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		DB60ADAD23E042F4005D8458 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				DB7FCC0023D5B9830007250A /* ShipmentInpost.swift */,
 				DB71792F23E0B52900DDD9FD /* EventInpost.swift */,
 				DB71793123E0C15B00DDD9FD /* StatusesInpost.swift */,
+				DB5EC57223EC465400989F51 /* StatusInpost.swift */,
 			);
 			path = Inpost;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				DBE9E51323CC9EA900691C0C /* ShipmentDHL.swift */,
+				DB5EC57023EC2F7900989F51 /* StatusDHL.swift */,
 				DBE9E51523CC9F0000691C0C /* PlaceDHL.swift */,
 				DBE9E51B23CDACA700691C0C /* EventDHL.swift */,
 				DBE9E51923CDA82B00691C0C /* DHL.swift */,
@@ -426,6 +432,7 @@
 				DBE9E52323CDD44B00691C0C /* MapView.swift in Sources */,
 				DBE9E51E23CDAD2B00691C0C /* StatusCode.swift in Sources */,
 				DB7D11F523E02DE00002B897 /* ShipmentDetaliCard.swift in Sources */,
+				DB5EC57323EC465400989F51 /* StatusInpost.swift in Sources */,
 				DBDAB35A23C4A1F7001924CE /* Tracel.xcdatamodeld in Sources */,
 				DBDAB35523C4A1F7001924CE /* AppDelegate.swift in Sources */,
 				DB71793223E0C15B00DDD9FD /* StatusesInpost.swift in Sources */,
@@ -447,6 +454,7 @@
 				DB71793023E0B52900DDD9FD /* EventInpost.swift in Sources */,
 				DBE9E52723CDE8B200691C0C /* ShipmentGraph.swift in Sources */,
 				DBF9A58223CBBD0600BADD52 /* PackageListView.swift in Sources */,
+				DB5EC57123EC2F7900989F51 /* StatusDHL.swift in Sources */,
 				DB60ADB023E04761005D8458 /* ServiceProviders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

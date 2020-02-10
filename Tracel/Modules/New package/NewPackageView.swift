@@ -76,18 +76,13 @@ struct NewPackageView: View {
             switch result {
             case .success(let data):
                 do {
-                    switch ServiceProviders(rawValue: self.services[self.pickedService]) {
-                    case .dhl:
-                        try self.interactor.decodeDhlIntoShipment(from: data)
-                        self.presentationMode.wrappedValue.dismiss()
-                        try self.moc.save()
-                    case .inpost:
-                        try self.interactor.decodeInpostIntoShipment(from: data)
-                        self.presentationMode.wrappedValue.dismiss()
-                        try self.moc.save()
-                    case .none:
-                        self.showError.toggle()
+                    guard let shipment = try self.interactor.decodePackageIntoShipment(for: package, from: data) else {
+                        self.moc.delete(package)
+                        return self.showError.toggle()
                     }
+                    package.status_code = shipment.status.statusCode!.rawValue
+                    self.presentationMode.wrappedValue.dismiss()
+                    try self.moc.save()
                 }
                 catch {
                     self.showError.toggle()

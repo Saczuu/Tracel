@@ -4,9 +4,10 @@
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="service_provider" optional="YES" attributeType="String"/>
+        <attribute name="status_code" optional="YES" attributeType="String"/>
         <attribute name="tracking_number" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Package" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Package" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>
