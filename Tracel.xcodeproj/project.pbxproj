@@ -22,6 +22,8 @@
 		DB7FCBFA23D5B8450007250A /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7FCBF923D5B8450007250A /* Place.swift */; };
 		DB7FCBFC23D5B8C30007250A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7FCBFB23D5B8C30007250A /* Event.swift */; };
 		DB7FCC0123D5B9830007250A /* ShipmentInpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7FCC0023D5B9830007250A /* ShipmentInpost.swift */; };
+		DB89E1FA23F2BBDA00A77569 /* UIRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89E1F923F2BBDA00A77569 /* UIRefresher.swift */; };
+		DB89E1FC23F2BC7C00A77569 /* Rotoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89E1FB23F2BC7C00A77569 /* Rotoscope.swift */; };
 		DBDAB35523C4A1F7001924CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB35423C4A1F7001924CE /* AppDelegate.swift */; };
 		DBDAB35723C4A1F7001924CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB35623C4A1F7001924CE /* SceneDelegate.swift */; };
 		DBDAB35A23C4A1F7001924CE /* Tracel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB35823C4A1F7001924CE /* Tracel.xcdatamodeld */; };
@@ -30,7 +32,6 @@
 		DBDAB36423C4A1FF001924CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDAB36223C4A1FF001924CE /* LaunchScreen.storyboard */; };
 		DBDAB36F23C4A1FF001924CE /* TracelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB36E23C4A1FF001924CE /* TracelTests.swift */; };
 		DBDAB37A23C4A1FF001924CE /* TracelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB37923C4A1FF001924CE /* TracelUITests.swift */; };
-		DBDEF1EE23E161DE00E444FB /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDEF1ED23E161DE00E444FB /* VisualEffectView.swift */; };
 		DBE9E51423CC9EA900691C0C /* ShipmentDHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51323CC9EA900691C0C /* ShipmentDHL.swift */; };
 		DBE9E51623CC9F0000691C0C /* PlaceDHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51523CC9F0000691C0C /* PlaceDHL.swift */; };
 		DBE9E51A23CDA82C00691C0C /* DHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9E51923CDA82B00691C0C /* DHL.swift */; };
@@ -77,6 +78,8 @@
 		DB7FCBF923D5B8450007250A /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		DB7FCBFB23D5B8C30007250A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DB7FCC0023D5B9830007250A /* ShipmentInpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentInpost.swift; sourceTree = "<group>"; };
+		DB89E1F923F2BBDA00A77569 /* UIRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRefresher.swift; sourceTree = "<group>"; };
+		DB89E1FB23F2BC7C00A77569 /* Rotoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotoscope.swift; sourceTree = "<group>"; };
 		DBDAB35123C4A1F7001924CE /* Tracel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDAB35423C4A1F7001924CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBDAB35623C4A1F7001924CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,7 +94,6 @@
 		DBDAB37523C4A1FF001924CE /* TracelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TracelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDAB37923C4A1FF001924CE /* TracelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracelUITests.swift; sourceTree = "<group>"; };
 		DBDAB37B23C4A1FF001924CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBDEF1ED23E161DE00E444FB /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		DBE9E51323CC9EA900691C0C /* ShipmentDHL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDHL.swift; sourceTree = "<group>"; };
 		DBE9E51523CC9F0000691C0C /* PlaceDHL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDHL.swift; sourceTree = "<group>"; };
 		DBE9E51923CDA82B00691C0C /* DHL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHL.swift; sourceTree = "<group>"; };
@@ -291,7 +293,8 @@
 				DB1EB80523E882D5009A4101 /* Loading.swift */,
 				DB7D11F223E0273A0002B897 /* String.swift */,
 				DB60ADAD23E042F4005D8458 /* NetworkError.swift */,
-				DBDEF1ED23E161DE00E444FB /* VisualEffectView.swift */,
+				DB89E1FB23F2BC7C00A77569 /* Rotoscope.swift */,
+				DB89E1F923F2BBDA00A77569 /* UIRefresher.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -437,12 +440,13 @@
 				DBDAB35523C4A1F7001924CE /* AppDelegate.swift in Sources */,
 				DB71793223E0C15B00DDD9FD /* StatusesInpost.swift in Sources */,
 				DBDAB35723C4A1F7001924CE /* SceneDelegate.swift in Sources */,
-				DBDEF1EE23E161DE00E444FB /* VisualEffectView.swift in Sources */,
 				DB1EB80623E882D5009A4101 /* Loading.swift in Sources */,
+				DB89E1FA23F2BBDA00A77569 /* UIRefresher.swift in Sources */,
 				DBE9E52123CDC59400691C0C /* ActivityIndicator.swift in Sources */,
 				DB60ADAE23E042F4005D8458 /* NetworkError.swift in Sources */,
 				DBE9E51C23CDACA700691C0C /* EventDHL.swift in Sources */,
 				DB7FCBFC23D5B8C30007250A /* Event.swift in Sources */,
+				DB89E1FC23F2BC7C00A77569 /* Rotoscope.swift in Sources */,
 				DBE9E51A23CDA82C00691C0C /* DHL.swift in Sources */,
 				DB60ADAC23E0411B005D8458 /* Interactor.swift in Sources */,
 				DB60ADA923E03FAA005D8458 /* NewPackageView.swift in Sources */,

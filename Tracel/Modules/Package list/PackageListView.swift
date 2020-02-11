@@ -11,6 +11,7 @@ import SwiftUI
 struct PackageListView: View {
     
     @State var showModalNewPacakageView: Bool = false
+    @State var isLoading: Bool = false
     
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Package.entity(), sortDescriptors: []) var packages: FetchedResults<Package>
@@ -56,19 +57,19 @@ struct PackageListView: View {
                         }
                         .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: 100, maxHeight: 100)
                         .onAppear {
-                            self.interactor.fetchPackageData(trackingNumber: package.tracking_number!, serviceProvider: ServiceProviders(rawValue: package.service_provider!)!) { (result) in
-                                switch result {
-                                case .success(let data):
-                                    let status = try? self.interactor.decodePackageForStatus(for: package, from: data)
-                                    package.status_code = status!.statusCode?.rawValue
-                                case .failure(_):
-                                    return
-                                }
-                            }
+                            self.updatePackage(package)
                         }
                     }
-                }.onDelete(perform: removePackage)
+                }
+                .onDelete(perform: self.removePackage)
             }
+            .onPull(perform: {
+                self.isLoading.toggle()
+                self.packages.map { self.updatePackage($0)}
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.isLoading.toggle()
+                }
+            }, isLoading: isLoading)
             .navigationBarItems(trailing:
                 Button(action: {
                     self.showModalNewPacakageView = true
@@ -77,7 +78,7 @@ struct PackageListView: View {
                 }.sheet(isPresented: self.$showModalNewPacakageView, content: {
                     NewPackageView().environment(\.managedObjectContext, self.moc)
                 }))
-                .navigationBarTitle("Your Package")
+            .navigationBarTitle("Your Packages")
         }
     }
     
@@ -88,6 +89,18 @@ struct PackageListView: View {
         }
         
         try? moc.save()
+    }
+    
+    func updatePackage(_ package: Package) {
+        self.interactor.fetchPackageData(trackingNumber: package.tracking_number!, serviceProvider: ServiceProviders(rawValue: package.service_provider!)!) { (result) in
+            switch result {
+            case .success(let data):
+                let status = try? self.interactor.decodePackageForStatus(for: package, from: data)
+                package.status_code = status!.statusCode?.rawValue
+            case .failure(_):
+                return
+            }
+        }
     }
 }
 
