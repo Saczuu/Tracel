@@ -13,7 +13,7 @@ struct PackageListView: View {
     @State var showModalNewPacakageView: Bool = false
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Package.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Package.service_provider, ascending: false)]) var packages: FetchedResults<Package>
+    @FetchRequest(entity: Package.entity(), sortDescriptors: []) var packages: FetchedResults<Package>
     var interactor = Interactor()
     
     var statusIcons = ["pretransit":"envelope",
@@ -39,12 +39,20 @@ struct PackageListView: View {
                             Image(systemName: self.statusIcons[package.status_code!]!)
                                 .resizable()
                                 .foregroundColor(.white)
-                                .background(Circle().fill(self.iconColors[package.status_code!]!).frame(width: 30, height: 30))
+                                .background(Circle().fill(self.iconColors[package.status_code!]!).frame(width: 50, height: 50))
                                 .frame(width: 30, height: 30)
+                                .padding()
                             VStack(alignment: .leading) {
-                                Text(package.desc ?? "No description")
-                                Text(package.tracking_number ?? "Unknown tracking number")
+                                Text("\(package.desc  ?? "No description")")
+                                HStack {
+                                    Text("\(package.tracking_number ?? "Unknown tracking number")")
+                                        .font(.footnote)
+                                    Spacer()
+                                    Text("\(package.service_provider ?? "Unknown service provider")")
+                                        .font(.footnote)
+                                }
                             }
+                            Spacer()
                         }
                         .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: 100, maxHeight: 100)
                         .onAppear {
