@@ -24,6 +24,7 @@
 		DB7FCC0123D5B9830007250A /* ShipmentInpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7FCC0023D5B9830007250A /* ShipmentInpost.swift */; };
 		DB89E1FA23F2BBDA00A77569 /* UIRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89E1F923F2BBDA00A77569 /* UIRefresher.swift */; };
 		DB89E1FC23F2BC7C00A77569 /* Rotoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89E1FB23F2BC7C00A77569 /* Rotoscope.swift */; };
+		DB89E1FE23F2C82800A77569 /* ShipmentHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89E1FD23F2C82800A77569 /* ShipmentHistoryList.swift */; };
 		DBDAB35523C4A1F7001924CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB35423C4A1F7001924CE /* AppDelegate.swift */; };
 		DBDAB35723C4A1F7001924CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB35623C4A1F7001924CE /* SceneDelegate.swift */; };
 		DBDAB35A23C4A1F7001924CE /* Tracel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB35823C4A1F7001924CE /* Tracel.xcdatamodeld */; };
@@ -80,6 +81,7 @@
 		DB7FCC0023D5B9830007250A /* ShipmentInpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentInpost.swift; sourceTree = "<group>"; };
 		DB89E1F923F2BBDA00A77569 /* UIRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRefresher.swift; sourceTree = "<group>"; };
 		DB89E1FB23F2BC7C00A77569 /* Rotoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotoscope.swift; sourceTree = "<group>"; };
+		DB89E1FD23F2C82800A77569 /* ShipmentHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentHistoryList.swift; sourceTree = "<group>"; };
 		DBDAB35123C4A1F7001924CE /* Tracel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDAB35423C4A1F7001924CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBDAB35623C4A1F7001924CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				DBF9A58323CBBD4000BADD52 /* PackageDetailsView.swift */,
 				DB7D11F423E02DE00002B897 /* ShipmentDetaliCard.swift */,
+				DB89E1FD23F2C82800A77569 /* ShipmentHistoryList.swift */,
 			);
 			path = "Package details";
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				DB71793023E0B52900DDD9FD /* EventInpost.swift in Sources */,
 				DBE9E52723CDE8B200691C0C /* ShipmentGraph.swift in Sources */,
 				DBF9A58223CBBD0600BADD52 /* PackageListView.swift in Sources */,
+				DB89E1FE23F2C82800A77569 /* ShipmentHistoryList.swift in Sources */,
 				DB5EC57123EC2F7900989F51 /* StatusDHL.swift in Sources */,
 				DB60ADB023E04761005D8458 /* ServiceProviders.swift in Sources */,
 			);

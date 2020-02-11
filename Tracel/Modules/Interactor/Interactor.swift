@@ -11,6 +11,7 @@ import Foundation
 
 class Interactor {
     
+    // MARK: - Fetch data from API
     func fetchPackageData(trackingNumber: String, serviceProvider: ServiceProviders, result: @escaping (Result<Data, NetworkError>) -> Void) {
         switch serviceProvider {
         case .dhl:
@@ -38,7 +39,7 @@ class Interactor {
             }.resume()
         }
     }
-    
+    //FIXME: Temporary implementation of data request from UPS
     func fetchUPS() {
         //https://wwwcie.ups.com/rest/Track
         guard var url = URLComponents(string: "https://wwwcie.ups.com/rest/Track") else { return }
@@ -70,7 +71,7 @@ class Interactor {
         }.resume()
     }
     
-    // MARK: - INPOST
+    // MARK: - INPOST status list request
     func fetchInpostStatuses(result: @escaping (Result<StatusesInpost, NetworkError>) -> Void ){
         let url = URL(string: "https://api-shipx-pl.easypack24.net/v1/statuses")
         var request = URLRequest(url: url!)
@@ -110,20 +111,22 @@ class Interactor {
         }
     }
     
+    //MARK: - DHL decoders
     func decodeDhlIntoShipment(from data: Data) throws -> Shipment {
         let json = JSONDecoder()
         let dhl = try json.decode(DHL.self, from: data)
         return dhl.shipments.first!
     }
     
-    func decodeInpostIntoShipment(from data: Data) throws -> Shipment {
-        let json = JSONDecoder()
-        return try json.decode(ShipmentInpost.self, from: data)
-    }
-    
     func decodeDhlIntoStatus(from data: Data) throws -> Event {
         let shipment = try self.decodeDhlIntoShipment(from: data)
         return shipment.status
+    }
+    
+    //MARK: - Inpost Decoders
+    func decodeInpostIntoShipment(from data: Data) throws -> Shipment {
+        let json = JSONDecoder()
+        return try json.decode(ShipmentInpost.self, from: data)
     }
     
     func decodeInpostIntoStatus(from data: Data) throws -> Event {

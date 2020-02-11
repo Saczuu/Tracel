@@ -30,25 +30,7 @@ struct PackageDetailsView: View {
                         ShipmentGraph(statusCode: shipment!.status!.statusCode ?? StatusCode.unknown)
                         Spacer()
                     }
-                    Text("History of package")
-                        .font(.headline)
-                        .padding(.bottom, 10)
-                    ForEach (shipment!.events!, id: \.timestamp) { event in
-                        VStack {
-                            HStack {
-                                Text("\(event.description ?? "No event details")")
-                                Spacer()
-                            }
-                            .padding(.bottom, 10)
-                            HStack {
-                                Spacer()
-                                Text("\(event.timestamp ?? "No given timestamp")")
-                                    .font(.system(size: 8))
-                                    .foregroundColor(.gray)
-                            }
-                            Divider()
-                        }
-                    }
+                    ShipmentHistoryList(shipment: self.shipment!)
                 }
             } else {
                 VStack(alignment: .center) {
@@ -65,8 +47,7 @@ struct PackageDetailsView: View {
         }
         .navigationBarTitle(Text("Package details"))
         .onAppear {
-            try! self.decodeShipment(package: self.package)
-//            self.interactor.fetchUPS()
+            self.decodeShipment(package: self.package)
         }
         .listStyle(GroupedListStyle())
         .environment(\.horizontalSizeClass, .regular)
@@ -78,18 +59,9 @@ struct PackageDetailsView: View {
             case .failure(_) :
                 print("Error with featching")
             case .success(let data) :
-                switch ServiceProviders(rawValue: self.package.service_provider!) {
-                case .inpost :
-                    self.shipment = try! self.interactor.decodeInpostIntoShipment(from: data)
-                    self.package.status_code = self.shipment!.status.statusCode?.rawValue
-                    self.isLoading.toggle()
-                case .dhl :
-                    self.shipment = try! self.interactor.decodeDhlIntoShipment(from: data)
-                    self.package.status_code = self.shipment!.status.statusCode?.rawValue
-                    self.isLoading.toggle()
-                case .none:
-                    print("Error")
-                }
+                self.shipment = try! self.interactor.decodePackageIntoShipment(for: ServiceProviders(rawValue: package.service_provider!)!, from: data)
+                self.package.status_code = self.shipment!.status.statusCode?.rawValue
+                self.isLoading.toggle()
             }
         }
     }

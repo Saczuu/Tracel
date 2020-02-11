@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct ShipmentDetaliCard: View {
+    
     let shipment: Shipment!
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Package number")
