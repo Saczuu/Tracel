@@ -41,14 +41,13 @@ class Interactor {
     }
     //FIXME: Temporary implementation of data request from UPS
     func fetchUPS() {
-        //https://wwwcie.ups.com/rest/Track
         guard var url = URLComponents(string: "https://wwwcie.ups.com/rest/Track") else { return }
         let params = ["UPSSecurity": [
             "UsernameToken": [
                 "Username": "saczewski.maciej@outlook.com",
                 "Password": "zitki1-rUvtib-dicpup"],
             "ServiceAccessToken": [
-                "AccessLicenseNumber": "Your Access License Number"
+                "AccessLicenseNumber": "3D77E5B7220153D5"
             ]],
                       "TrackRequest": [
                         "Request": [
@@ -67,7 +66,7 @@ class Interactor {
             guard let data = data else {
                 return
             }
-            print(String(data: data, encoding: String.Encoding.utf8))
+            print(data.prettyPrintedJSONString!)
         }.resume()
     }
     

@@ -16,7 +16,6 @@ class EventInpost: Event {
     
     init(status: String, timestamp: String) {
         super.init()
-        
         self.timestamp = timestamp
         self.status = status
         
@@ -30,6 +29,7 @@ class EventInpost: Event {
                     }
                 }
             case .failure(_):
+                print("error")
                 self.status = "Unknown"
                 self.description = "Unknown"
             }
@@ -37,7 +37,7 @@ class EventInpost: Event {
         
         if self.status == "delivered" || self.status!.contains("ready_to_pickup"){
             self.statusCode = StatusCode.delivered
-        } else if self.status == "created" || self.status == "confirmed" {
+        } else if self.status == "created" || self.status == "confirmed" || self.status == "collected_from_sender" {
             self.statusCode = .pretransit
         } else if self.status!.contains("undelivered") {
             self.statusCode = .failure
@@ -68,9 +68,9 @@ class EventInpost: Event {
             }
         }
         
-        if self.status == "delivered" || self.status!.contains("ready_to_pickup"){
+        if self.status == "delivered" || self.status!.contains("ready_to_pickup") {
             self.statusCode = StatusCode.delivered
-        } else if self.status == "created" || self.status == "confirmed" {
+        } else if self.status == "created" || self.status == "confirmed" || self.status == "collected_from_sender" {
             self.statusCode = .pretransit
         } else if self.status!.contains("undelivered") {
             self.statusCode = .failure

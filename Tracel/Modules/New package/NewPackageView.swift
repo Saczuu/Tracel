@@ -13,7 +13,6 @@ struct NewPackageView: View {
     
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
-    var interactor = Interactor()
     
     var services = ["DHL", "Inpost"]
     
@@ -68,19 +67,20 @@ struct NewPackageView: View {
     }
     
     func saveNewPackage(package_number: String, service_provider: String) {
-        self.interactor.fetchPackageData(trackingNumber: self.trackingNumber, serviceProvider: ServiceProviders(rawValue: self.services[self.pickedService])! ) { (result) in
+        let package = Package(context: self.moc)
+        package.id = UUID()
+        package.tracking_number = self.trackingNumber
+        package.service_provider = self.services[self.pickedService]
+        package.desc = self.description
+        package.status_code = "unknown"
+        package.fetchPackageData() { (result) in
             switch result {
             case .success(let data):
                 do {
                     
-                    guard let shipment = try self.interactor.decodePackageIntoShipment(for: ServiceProviders(rawValue: self.services[self.pickedService])!, from: data) else {
+                    guard let shipment = try data.decodePackageIntoShipment(for: package) else {
                         return self.showError.toggle()
                     }
-                    let package = Package(context: self.moc)
-                    package.id = UUID()
-                    package.tracking_number = self.trackingNumber
-                    package.service_provider = self.services[self.pickedService]
-                    package.desc = self.description
                     package.status_code = shipment.status.statusCode!.rawValue
                     try self.moc.save()
                     return self.presentationMode.wrappedValue.dismiss()
@@ -92,11 +92,5 @@ struct NewPackageView: View {
                 self.showError.toggle()
             }
         }
-    }
-}
-
-struct AddNewPackage_Previews: PreviewProvider {
-    static var previews: some View {
-        NewPackageView()
     }
 }

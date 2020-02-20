@@ -15,21 +15,17 @@ struct PackageListView: View {
     
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Package.entity(), sortDescriptors: []) var packages: FetchedResults<Package>
-    var interactor = Interactor()
     
-    var statusIcons = ["pretransit":"envelope",
+    var statusIcons = ["pre-transit":"envelope",
                        "transit": "cube.box",
                        "delivered":"checkmark",
                        "failure": "exclamationmark.triangle.fill",
-                       "unknown": "exclamationmark.triangle.fill"]
-    var iconColors = ["pretransit":Color.blue,
+                       "unknown": "questionmark.circle.fill"]
+    var iconColors = ["pre-transit":Color.blue,
                       "transit": .orange,
                       "delivered": .green,
                       "failure": .red,
-                      "unknown": .red]
-    init() {
-        UITableView.appearance().tableFooterView = UIView()
-    }
+                      "unknown": .yellow]
     
     var body: some View {
         NavigationView {
@@ -92,20 +88,15 @@ struct PackageListView: View {
     }
     
     func updatePackage(_ package: Package) {
-        self.interactor.fetchPackageData(trackingNumber: package.tracking_number!, serviceProvider: ServiceProviders(rawValue: package.service_provider!)!) { (result) in
+        package.fetchPackageData() { (result) in
             switch result {
             case .success(let data):
-                let status = try? self.interactor.decodePackageForStatus(for: package, from: data)
+                let status = try? data.decodePackageForStatus(for: package)
                 package.status_code = status!.statusCode?.rawValue
+                try! self.moc.save()
             case .failure(_):
                 return
             }
         }
-    }
-}
-
-struct PackageListView_Previews: PreviewProvider {
-    static var previews: some View {
-        PackageListView()
     }
 }

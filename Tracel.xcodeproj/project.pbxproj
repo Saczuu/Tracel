@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB12BD4923FBDAAB00975BA5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12BD4823FBDAAB00975BA5 /* Data.swift */; };
 		DB1EB80623E882D5009A4101 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1EB80523E882D5009A4101 /* Loading.swift */; };
 		DB5EC57123EC2F7900989F51 /* StatusDHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5EC57023EC2F7900989F51 /* StatusDHL.swift */; };
 		DB5EC57323EC465400989F51 /* StatusInpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5EC57223EC465400989F51 /* StatusInpost.swift */; };
@@ -14,6 +15,7 @@
 		DB60ADAC23E0411B005D8458 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAB23E0411B005D8458 /* Interactor.swift */; };
 		DB60ADAE23E042F4005D8458 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAD23E042F4005D8458 /* NetworkError.swift */; };
 		DB60ADB023E04761005D8458 /* ServiceProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60ADAF23E04761005D8458 /* ServiceProviders.swift */; };
+		DB704BB223FE976E00F83FA9 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB704BB123FE976E00F83FA9 /* Package.swift */; };
 		DB71793023E0B52900DDD9FD /* EventInpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71792F23E0B52900DDD9FD /* EventInpost.swift */; };
 		DB71793223E0C15B00DDD9FD /* StatusesInpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71793123E0C15B00DDD9FD /* StatusesInpost.swift */; };
 		DB7D11F323E0273A0002B897 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D11F223E0273A0002B897 /* String.swift */; };
@@ -63,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB12BD4823FBDAAB00975BA5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		DB1EB80523E882D5009A4101 /* Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		DB2064D923D0DC4700962097 /* Tracel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tracel.entitlements; sourceTree = "<group>"; };
 		DB5EC57023EC2F7900989F51 /* StatusDHL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDHL.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		DB60ADAB23E0411B005D8458 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		DB60ADAD23E042F4005D8458 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DB60ADAF23E04761005D8458 /* ServiceProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviders.swift; sourceTree = "<group>"; };
+		DB704BB123FE976E00F83FA9 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		DB71792F23E0B52900DDD9FD /* EventInpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInpost.swift; sourceTree = "<group>"; };
 		DB71793123E0C15B00DDD9FD /* StatusesInpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusesInpost.swift; sourceTree = "<group>"; };
 		DB7D11F223E0273A0002B897 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -133,6 +137,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB16216723FD2ABA002EB3E2 /* UPS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UPS;
+			sourceTree = "<group>";
+		};
 		DB60ADA723E03F9A005D8458 /* New package */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +160,16 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		DB704BB023FE93FC00F83FA9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DB12BD4823FBDAAB00975BA5 /* Data.swift */,
+				DB7D11F223E0273A0002B897 /* String.swift */,
+				DB704BB123FE976E00F83FA9 /* Package.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DB7D11F623E0325F0002B897 /* Package list */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,8 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				DB60ADAA23E04109005D8458 /* Interactor */,
-				DB60ADA723E03F9A005D8458 /* New package */,
 				DB7D11F623E0325F0002B897 /* Package list */,
+				DB60ADA723E03F9A005D8458 /* New package */,
 				DB7D120523E03D510002B897 /* Package details */,
 			);
 			path = Modules;
@@ -172,8 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				DBF9A58323CBBD4000BADD52 /* PackageDetailsView.swift */,
-				DB7D11F423E02DE00002B897 /* ShipmentDetaliCard.swift */,
-				DB89E1FD23F2C82800A77569 /* ShipmentHistoryList.swift */,
 			);
 			path = "Package details";
 			sourceTree = "<group>";
@@ -223,6 +242,7 @@
 		DBDAB35323C4A1F7001924CE /* Tracel */ = {
 			isa = PBXGroup;
 			children = (
+				DB704BB023FE93FC00F83FA9 /* Extensions */,
 				DBE9E51F23CDC58300691C0C /* Components */,
 				DBE9E51123CC9E4D00691C0C /* Entities */,
 				DB7D120423E03C230002B897 /* Modules */,
@@ -271,6 +291,7 @@
 				DB7FCBF423D592380007250A /* Generic */,
 				DB7FCBFD23D5B9650007250A /* Inpost */,
 				DBE9E51223CC9E5800691C0C /* DHL */,
+				DB16216723FD2ABA002EB3E2 /* UPS */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -290,11 +311,12 @@
 		DBE9E51F23CDC58300691C0C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DB7D11F423E02DE00002B897 /* ShipmentDetaliCard.swift */,
+				DB89E1FD23F2C82800A77569 /* ShipmentHistoryList.swift */,
 				DBE9E52623CDE8B200691C0C /* ShipmentGraph.swift */,
 				DBE9E52023CDC59400691C0C /* ActivityIndicator.swift */,
 				DBE9E52223CDD44B00691C0C /* MapView.swift */,
 				DB1EB80523E882D5009A4101 /* Loading.swift */,
-				DB7D11F223E0273A0002B897 /* String.swift */,
 				DB60ADAD23E042F4005D8458 /* NetworkError.swift */,
 				DB89E1FB23F2BC7C00A77569 /* Rotoscope.swift */,
 				DB89E1F923F2BBDA00A77569 /* UIRefresher.swift */,
@@ -442,6 +464,7 @@
 				DBDAB35A23C4A1F7001924CE /* Tracel.xcdatamodeld in Sources */,
 				DBDAB35523C4A1F7001924CE /* AppDelegate.swift in Sources */,
 				DB71793223E0C15B00DDD9FD /* StatusesInpost.swift in Sources */,
+				DB704BB223FE976E00F83FA9 /* Package.swift in Sources */,
 				DBDAB35723C4A1F7001924CE /* SceneDelegate.swift in Sources */,
 				DB1EB80623E882D5009A4101 /* Loading.swift in Sources */,
 				DB89E1FA23F2BBDA00A77569 /* UIRefresher.swift in Sources */,
@@ -464,6 +487,7 @@
 				DB89E1FE23F2C82800A77569 /* ShipmentHistoryList.swift in Sources */,
 				DB5EC57123EC2F7900989F51 /* StatusDHL.swift in Sources */,
 				DB60ADB023E04761005D8458 /* ServiceProviders.swift in Sources */,
+				DB12BD4923FBDAAB00975BA5 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

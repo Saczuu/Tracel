@@ -44,9 +44,7 @@ class ShipmentInpost: Shipment {
         let timestamp = try container.decode(String.self, forKey: .status_timestamp)
         let status = try container.decode(String.self, forKey: .status)
         self.status = EventInpost(status: status, timestamp: timestamp)
-        
-        //"tracking_details\":[{\"status\":\"delivered\",\"origin_status\":\"DOR\",\"agency\":null,\"datetime\":\"2020-01-15T07:51:16.000+01:00\"}
-        
+        print(self.status.statusCode)
         do {
             let customAttributesContiner = try container.nestedContainer(keyedBy: CodingKeysCustomAtributes.self, forKey: .destination)
             let targetMachineContainer = try customAttributesContiner.nestedContainer(keyedBy: CodingKeysTargetMachineDetail.self, forKey: .target_machine_detail)

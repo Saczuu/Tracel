@@ -10,8 +10,6 @@ import SwiftUI
 
 struct PackageDetailsView: View {
     
-    let interactor: Interactor! = Interactor()
-    
     var package: Package!
     
     @State var isLoading: Bool = true
@@ -21,9 +19,24 @@ struct PackageDetailsView: View {
         List {
             if isLoading == false {
                 VStack(alignment: .leading) {
-                    MapView(origin: self.shipment?.origin, destination: self.shipment?.destination)
-                        .frame(height: 300)
-                        .padding([.top, .leading, .trailing], -20)
+                    ZStack {
+                        MapView(origin: self.shipment?.origin, destination: self.shipment?.destination)
+                            .frame(height: 300)
+                            .padding([.top, .leading, .trailing], -20)
+                        if shipment?.origin == nil && shipment?.destination == nil  {
+                            HStack {
+                                Spacer()
+                                Text("No information about destination or origin")
+                                    .foregroundColor(.white)
+                                    .font(.subheadline)
+                                Spacer()
+                            }
+                        .background(
+                            Color.black.frame(height:125).padding([.leading, .trailing], -25)
+                        )
+                        }
+                    }
+                    .frame(minWidth: 100, maxWidth: .infinity + 100)
                     ShipmentDetaliCard(shipment: self.shipment!)
                     HStack {
                         Spacer()
@@ -42,7 +55,7 @@ struct PackageDetailsView: View {
                     }
                     Spacer()
                 }
-                .frame(minHeight: 800, maxHeight: .infinity)
+                .frame(minHeight: 1000, maxHeight: .infinity)
             }
         }
         .navigationBarTitle(Text("Package details"))
@@ -54,12 +67,12 @@ struct PackageDetailsView: View {
     }
     
     func decodeShipment(package: Package) {
-        self.interactor.fetchPackageData(trackingNumber: package.tracking_number!, serviceProvider: ServiceProviders(rawValue: package.service_provider!)!) { response in
+        package.fetchPackageData() { response in
             switch response {
             case .failure(_) :
                 print("Error with featching")
             case .success(let data) :
-                self.shipment = try! self.interactor.decodePackageIntoShipment(for: ServiceProviders(rawValue: package.service_provider!)!, from: data)
+                self.shipment = try! data.decodePackageIntoShipment(for: package)
                 self.package.status_code = self.shipment!.status.statusCode?.rawValue
                 self.isLoading.toggle()
             }
