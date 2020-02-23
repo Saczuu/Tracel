@@ -19,7 +19,7 @@ extension Data {
     
     //MARK:- Decoders
     func decodePackageIntoShipment(for package: Package) throws -> Shipment? {
-        switch ServiceProviders(rawValue: package.service_provider!) {
+        switch ServiceProviders(rawValue: package.service_provider ?? "none") {
         case .dhl:
             return try decodeDhlIntoShipment(from: self)
         case .inpost:
@@ -30,7 +30,7 @@ extension Data {
     }
     
     func decodePackageForStatus(for package: Package) throws -> Event? {
-        switch ServiceProviders(rawValue: package.service_provider!) {
+        switch ServiceProviders(rawValue: package.service_provider ?? "none") {
         case .dhl:
             return try decodeDhlIntoStatus(from: self)
         case .inpost:

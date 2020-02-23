@@ -13,6 +13,8 @@ struct PackageDetailsView: View {
     var package: Package!
     
     @State var isLoading: Bool = true
+    @State var showSuccess: Bool = false
+    @State var showError: Bool = false
     @State var shipment: Shipment? = nil
     
     var body: some View {
@@ -50,12 +52,22 @@ struct PackageDetailsView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        ActivityIndicator(isAnimating: self.$isLoading, style: .medium)
+                        Loading(rotateIndicator: isLoading,
+                                showCompletion: showSuccess,
+                                showError: showError,
+                                errorString: "Try again or pick another package",
+                                onErrorHandler: {
+                                    self.showError.toggle()
+                                    return self.onAppear() as! Void
+                        }, onSuccessHandler: {
+                            self.isLoading.toggle()
+                            return self.showSuccess.toggle()
+                        })
                         Spacer()
                     }
                     Spacer()
                 }
-                .frame(minHeight: 1000, maxHeight: .infinity)
+                .frame(minHeight: 800, maxHeight: .infinity)
             }
         }
         .navigationBarTitle(Text("Package details"))
@@ -70,7 +82,7 @@ struct PackageDetailsView: View {
         package.fetchPackageData() { response in
             switch response {
             case .failure(_) :
-                print("Error with featching")
+                self.showError.toggle()
             case .success(let data) :
                 self.shipment = try! data.decodePackageIntoShipment(for: package)
                 self.package.status_code = self.shipment!.status.statusCode?.rawValue

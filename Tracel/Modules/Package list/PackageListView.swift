@@ -91,9 +91,16 @@ struct PackageListView: View {
         package.fetchPackageData() { (result) in
             switch result {
             case .success(let data):
-                let status = try? data.decodePackageForStatus(for: package)
-                package.status_code = status!.statusCode?.rawValue
-                try! self.moc.save()
+                do {
+                    let status = try data.decodePackageForStatus(for: package)
+                    guard status != nil else {
+                        return
+                    }
+                    package.status_code = status!.statusCode?.rawValue
+                    try! self.moc.save()
+                } catch {
+                    return
+                }
             case .failure(_):
                 return
             }

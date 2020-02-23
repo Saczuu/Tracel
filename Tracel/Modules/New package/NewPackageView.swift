@@ -32,11 +32,12 @@ struct NewPackageView: View {
                         showError: self.showError,
                         errorString: "Unable to find your package, check your tracking number",
                         onErrorHandler: {
-                            self.isValidating.toggle()
-                        }, onSuccessHandler: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        })
-                .padding()
+                            self.showError.toggle()
+                            return self.isValidating.toggle()
+                }, onSuccessHandler: {
+                    self.presentationMode.wrappedValue.dismiss()
+                })
+                    .padding()
             } else {
                 List {
                     Text("Description")
@@ -73,23 +74,27 @@ struct NewPackageView: View {
         package.service_provider = self.services[self.pickedService]
         package.desc = self.description
         package.status_code = "unknown"
-        package.fetchPackageData() { (result) in
-            switch result {
-            case .success(let data):
-                do {
-                    
-                    guard let shipment = try data.decodePackageIntoShipment(for: package) else {
-                        return self.showError.toggle()
+        do {
+            package.fetchPackageData() { (result) in
+                switch result {
+                case .success(let data):
+                    do {
+                        
+                        guard let shipment = try data.decodePackageIntoShipment(for: package) else {
+                            return self.showError.toggle()
+                        }
+                        package.status_code = shipment.status.statusCode!.rawValue
+                        try self.moc.save()
+                        return self.presentationMode.wrappedValue.dismiss()
                     }
-                    package.status_code = shipment.status.statusCode!.rawValue
-                    try self.moc.save()
-                    return self.presentationMode.wrappedValue.dismiss()
-                }
-                catch {
+                    catch {
+                        self.moc.delete(package)
+                        self.showError.toggle()
+                    }
+                case .failure(_):
+                    self.moc.delete(package)
                     self.showError.toggle()
                 }
-            case .failure(_):
-                self.showError.toggle()
             }
         }
     }

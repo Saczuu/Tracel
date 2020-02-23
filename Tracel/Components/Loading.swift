@@ -41,7 +41,7 @@ struct Loading: View {
             } else {
                 HStack {
                     Image(systemName: "arrow.2.circlepath")
-                        .rotationEffect(.degrees(self.rotateIndicator ? 0 : -360))
+                        .rotationEffect(.degrees(self.rotateIndicator ? 0 : 360))
                         .scaleEffect(2)
                         .animation(Animation.linear(duration: 0.5).repeatForever(autoreverses: false).speed(0.3))
                         .onAppear {
