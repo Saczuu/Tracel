@@ -12,4 +12,5 @@ enum ServiceProviders: String {
     
     case dhl = "DHL"
     case inpost = "Inpost"
+    case ups = "UPS"
 }

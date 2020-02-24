@@ -20,6 +20,6 @@ class Event: Decodable {
         self.timestamp = timestamp
         self.status = status
         self.description = description
-        self.statusCode = .delivered
+        self.statusCode = .unknown
     }
 }

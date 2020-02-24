@@ -24,6 +24,8 @@ extension Data {
             return try decodeDhlIntoShipment(from: self)
         case .inpost:
             return try decodeInpostIntoShipment(from: self)
+        case .ups:
+            return try decodeUpsIntoShipment(from: self)
         case .none:
             return nil
         }
@@ -35,6 +37,8 @@ extension Data {
             return try decodeDhlIntoStatus(from: self)
         case .inpost:
             return try decodeInpostIntoStatus(from: self)
+        case .ups:
+            return try decodeUpsIntoStatus(from: self)
         case .none:
             return nil
         }
@@ -62,5 +66,16 @@ extension Data {
         let json = JSONDecoder()
         let status =  try json.decode(StatusImpost.self, from: data)
         return status.status
+    }
+    
+    //MARK: - UPS Decoders
+    private func decodeUpsIntoShipment(from data: Data) throws -> Shipment {
+        let json = JSONDecoder()
+        return try json.decode(ShipmentUPS.self, from: data)
+    }
+    
+    private func decodeUpsIntoStatus(from data: Data) throws -> Event {
+        let shipment = try self.decodeUpsIntoShipment(from: data)
+        return shipment.status
     }
 }

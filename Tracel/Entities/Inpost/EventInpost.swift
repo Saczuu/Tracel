@@ -19,8 +19,7 @@ class EventInpost: Event {
         self.timestamp = timestamp
         self.status = status
         
-        let interactor = Interactor()
-        interactor.fetchInpostStatuses { (result) in
+        self.fetchInpostStatuses { (result) in
             switch result {
             case .success(let fetchedStatuses):
                 for fetchedStatus in fetchedStatuses.items {
@@ -53,8 +52,7 @@ class EventInpost: Event {
         self.status = try! container.decode(String.self, forKey: .status)
         self.timestamp = try! container.decode(String.self, forKey: .datetime)
         
-        let interactor = Interactor()
-        interactor.fetchInpostStatuses { (result) in
+        self.fetchInpostStatuses { (result) in
             switch result {
             case .success(let fetchedStatuses):
                 for fetchedStatus in fetchedStatuses.items {
@@ -79,5 +77,21 @@ class EventInpost: Event {
         }
         
         
+    }
+    
+    private func fetchInpostStatuses(result: @escaping (Result<StatusesInpost, NetworkError>) -> Void ){
+        let url = URL(string: "https://api-shipx-pl.easypack24.net/v1/statuses")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            let json = JSONDecoder()
+            do {
+                let statuses = try! json.decode(StatusesInpost.self, from: data!)
+                result(.success(statuses))
+            } catch {
+                result(.failure(NetworkError.unableToFetch))
+            }
+        }.resume()
     }
 }

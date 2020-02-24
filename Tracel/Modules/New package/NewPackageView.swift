@@ -14,7 +14,7 @@ struct NewPackageView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
     
-    var services = ["DHL", "Inpost"]
+    var services = ["DHL", "Inpost", "UPS"]
     
     @State var description: String = ""
     @State var trackingNumber: String = ""
